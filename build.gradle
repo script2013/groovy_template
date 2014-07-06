@@ -8,8 +8,8 @@ mainClassName = "com.mycompany.ExampleGroovyClass"
 
 idea {
   project {
-    //if you want to set specific jdk and language level
-    jdkName = 'jdk1.7.0_60'
+    // if you want to set specific jdk and language level
+    // jdkName = 'jdk1.7.0_60'
     languageLevel = '1.7'
 
     //you can update the source wildcards
@@ -56,7 +56,7 @@ sourceSets {
         }
 
         groovy {
-            srcDirs = ['src/main/groovy', 'src/main/java']
+            srcDirs = ['src/test/groovy', 'src/test/java']
         }
     }
 }
