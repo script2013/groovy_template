@@ -19,6 +19,9 @@
 *.rar
 *.tar
 *.zip
+*.iml
+*.iws
+*.ipr
 
 # Logs and databases #
 ######################
@@ -41,7 +44,10 @@ Thumbs.db
 gradle/
 
 out/
+build/
 
 .cache
 .classpath
 .project
+gradlew
+gradlew.bat
