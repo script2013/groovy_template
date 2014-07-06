@@ -13,7 +13,6 @@ idea {
     languageLevel = '1.7'
 
     //you can update the source wildcards
-
     //you can change the modules of the the *.ipr
     //modules = project(':someProject').idea.module
 
@@ -32,15 +31,33 @@ repositories {
     mavenCentral()
 
 	//repository on your local disk (locally distributed library)
+    //repository on your local disk (locally distributed library)
     flatDir {
         dirs './locallib'
     }
 }
 
+
 sourceSets {
     main {
-        java { srcDirs = [] }    // no source dirs for the java compiler
-        groovy { srcDir "src" }  // compile everything in src/ with groovy
+        // no source directories for the java compiler, everything compiled through groovy
+        java {
+            srcDirs = []
+        }
+
+        groovy {
+            srcDirs = ['src/main/groovy', 'src/main/java']
+        }
+    }
+
+    test {
+        java {
+            srcDirs = []
+        }
+
+        groovy {
+            srcDirs = ['src/main/groovy', 'src/main/java']
+        }
     }
 }
 
@@ -48,16 +65,11 @@ sourceSets {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.5'
-    compile 'org.codehaus.groovy:groovy-all:2.2.0'
-    //compile ":jar-from-mylocallibs:1.0" //add a jar file from locallib folder
-	
-    
-	
-	// Declare the dependency for your favourite test framework you want to use in your tests.
-    // TestNG is also supported by the Gradle Test task. Just change the
-    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
-    // 'test.useTestNG()' to your build script.
+    compile 'org.codehaus.groovy:groovy-all:2.3.0'
+
+    //add a jar file from locallib folder
+    //compile ":myjar:1.0"
     testCompile "junit:junit:4.11"
-	testCompile "org.codehaus.groovy:groovy-all:2.3.0"	
+    testCompile "org.codehaus.groovy:groovy-all:2.3.0"
 }
 
